@@ -1,0 +1,134 @@
+/* 
+Filename: main.less 
+Route Path: null
+Author: Nathan Buskirk
+Email: nbuskirk@gmail.com
+Description: Main stylesheet for application
+*/
+
+/***************
+	Variables
+****************/
+
+/* Colors */
+@current: white;
+@navi: #1c1f26;
+@bg: #1c1f26;
+@highlight: #65737f;
+@panel: #1c1f26;
+@navHighlight: #2b303b;
+@navHighlightColor: white;
+@iconColor: white;
+
+/* Sizes */
+@navsize: 12px;
+
+
+/****************
+	animation!
+****************/
+@keyframes spin {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
+}
+.spin {
+	animation: spin 5s infinite;
+}
+
+/*************** 
+	Layout 
+****************/
+body {
+	background:@bg !important;
+	padding-top: 70px;
+}
+
+.content {
+	margin-bottom:20px;
+}
+
+.app-name {
+	color:@navHighlight;
+	padding:15px 0;
+	font-size:20px;
+	&:after {
+		color: @navHighlight;
+		padding:10px 0;
+		font-size:12px;
+		font-weight:900;
+		display: block;
+		content: attr(data-app-name);
+		font-family: 'Roboto', sans-serif;
+	};
+}
+
+/************** 
+   Typography 
+***************/
+
+p {
+	color:white;
+}
+* {
+	font-family: 'Work Sans', sans-serif;
+}
+h1 {color: rgba(53,160,45,1) !important}
+/************************
+   Bootstrap Overrides 
+************************/
+
+nav ul.nav li a {
+	color: @highlight !important;
+	font-size: @navsize;
+}
+nav ul.nav li a.active {
+	color: @current !important;
+	background-color: @navHighlight !important;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    background-color: @navHighlight !important;
+    color: @navHighlightColor !important;
+}
+nav.navbar {
+	border:none !important;
+}
+nav.navbar-inverse {
+	background-color:@navi;
+	text-transform:uppercase;
+}
+div.radial-container {
+	border:1px dotted @navHighlight;
+	margin:auto;
+	background: @panel;
+	position:relative;
+	.value {
+		color: @navHighlightColor;
+		bottom:10px;
+		right:10px;
+		position:absolute;
+	}
+}
+div.radial-circle { 
+	position:absolute;
+	background-color: rgba(43,48,59,0.75);
+}
+div.radial-handle {
+	width:10px;
+	height:10px;
+	background:rgba(255,255,255,0.75);
+	cursor:pointer;
+	-webkit-transform:rotate(0deg);
+    -webkit-transform-origin:5px 200px;
+    -moz-transform:rotate(0deg);
+    -moz-transform-origin:5px 200px;
+    -ms-transform:rotate(0deg);
+    -ms-transform-origin:5px 200px;
+    transform:rotate(0deg);
+    transform-origin:5px 200px; 
+    position:relative;
+
+}
